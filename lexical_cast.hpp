@@ -29,7 +29,6 @@ namespace lift
 
             std::cout << "Please enter a valid input: ";
             std::cin >> input;
-            std::cin >> result;
 
             parser.str(input);
             parser >> result;
