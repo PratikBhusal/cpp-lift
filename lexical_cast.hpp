@@ -8,10 +8,17 @@
 namespace lift
 {
     template <typename T> T lexical_cast();
+    template <typename T, typename S> T lexical_cast(const S&);
     template <typename T> T lexical_cast(std::string);
 
     template <typename T> T lexical_cast() {
         return lexical_cast<T>( std::string() );
+    }
+
+    template <typename T, typename S> T lexical_cast(const S& source) {
+        std::ostringstream parser;
+        parser << source;
+        return lexical_cast<T>( parser.str() );
     }
 
     template <typename T> T lexical_cast(std::string input) {
